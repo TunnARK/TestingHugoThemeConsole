@@ -1,63 +1,19 @@
 {{ define "main" }}
 
-<div class="image-grid">
-    {{ with .Site.GetPage "/photos" }}
-    {{ range first 1 (sort .Data.Pages "Date" "desc")}}
-    <a href="{{ .Permalink }}" title="{{ .Title }}">
-        {{ $image := .Page.Resources.GetMatch .Params.image }}
-        {{ with $image }}
-        {{ $thumb := .Resize "1000x" }}
-        <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
-        {{end}}
-    </a>
-    {{ end }}
-    {{ end }}
-</div>
-
-<h1><a> Boutique en ligne </a></h1><br>
-
-<center><a href="https://diapoesie-bijoux.sumupstore.com/">diapoesie-bijoux.sumupstore.com</a></center> 
-
-<div class="a-propos">
-    {{ with .Site.GetPage "/about" }}
-        <div class="about">
-            <p>
-                <h1><a title="{{ .Title }}">{{ .Title }}</a></h1>
-                <br><h1>Diapoesie</h1>
-                {{  .Content }}
-            </p>
-        </div>    
-    {{ end }}
- </div>
-
-<h1><a> Créations </a></h1><br>
+<center><h2><a> CRÉATIONS </a></h2><br></center>
 
 <div class="image-grid">
-{{ with .Site.GetPage "/photos" }}
-    {{ range first 6 (sort .Data.Pages "Date" "desc")}}
+{{ with .Site.GetPage "/creations" }}
+    {{ range first 12 (sort .Data.Pages "Date" "asc")}}
         <a href="{{ .Permalink }}" title="{{ .Title }}">
         {{ $image := .Page.Resources.GetMatch .Params.image }}
         {{ with $image }}
-            {{ $thumb := .Resize "800x" }}
+            {{ $thumb := .Resize "3000x" }}
             <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" class="img-responsive">
         {{end}}
         </a>
     {{ end }}
 {{ end }}
 </div>
-
-
-<div class="contact">
-    {{ with .Site.GetPage "/contact" }}
-        <div class="contact">
-            <p>
-                <h1><a title="{{ .Title }}">{{ .Title }}</a></h1><br>
-                {{  .Content }}
-            </p>
-        </div>    
-    {{ end }}
-</div>
-
-<center><h1><a>Sofia SPOLJARIC</a></h1></center>
 
 {{ end }}

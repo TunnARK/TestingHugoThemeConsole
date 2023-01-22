@@ -41,12 +41,23 @@
     --code-bg-color: #fff;
 }
 
+.site-name {
+    font-size: 20px;
+    width: 12ch;
+}
+
 @media only screen and (max-width: 850px) {
     :root {
         --global-font-size: 14px;
         --global-font-color: #444;
         --global-line-height: 1.6em;
         --page-width: 70em;
+    }
+    .site-name {
+        font-size: 22px;
+        width: 12ch;
+        overflow: hidden;
+        display: inline-block;
     }
 }
 
@@ -216,11 +227,13 @@ figure {
 
 @media only screen and (max-width: 850px) {
     .site-name {
-        width: 2ch;
+        font-size: 18px;
+        width: 16ch;
+        height: 2.2ch;
         overflow: hidden;
-        display: inline-block;
+        display: inline;
     }
-
+    
     .terminal-nav {
         align-items: flex-start;
         flex-direction: column;
