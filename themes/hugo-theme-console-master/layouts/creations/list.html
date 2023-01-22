@@ -4,7 +4,7 @@
 {{ .Content }}
 <div class="image-grid">
     {{ with .Site.GetPage "/creations" }}
-        {{ range first 12 (sort .Data.Pages "Date" "desc")}}
+        {{ range first 12 (sort .Data.Pages "Date" "asc")}}
             <a href="{{ .Permalink }}" title="{{ .Title }}">
             {{ $image := .Page.Resources.GetMatch .Params.image }}
             {{ with $image }}
